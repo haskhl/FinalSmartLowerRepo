@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18A6873D-CCD1-4BD2-B631-57B05C63A173}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LowerApplication</RootNamespace>
+    <AssemblyName>LowerApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>SL</ProductName>
+    <PublisherName>Hassan Shehata</PublisherName>
+    <SuiteName>Lowers ERP</SuiteName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>03BE223ECD3E18E4D9AD58D6AD6E1E19ADEF47D1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LowerApplication_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.8.0.6, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Case.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CasePayment.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseSession.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chamber.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AppConfiguration.cs" />
+    <Compile Include="Classes\Encryption.cs" />
+    <Compile Include="Classes\Enums.cs" />
+    <Compile Include="Classes\ErrorsManager.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Classes\HighlightControls.cs" />
+    <Compile Include="Classes\MessagesManager.cs" />
+    <Compile Include="CLowers_Case.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompetitorLower.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Court.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Accounting.cs" />
+    <Compile Include="DAL\CaseDB.cs" />
+    <Compile Include="DAL\ChamberDB.cs" />
+    <Compile Include="DAL\Connection.cs" />
+    <Compile Include="DAL\CourtDB.cs" />
+    <Compile Include="DAL\DelegatorDB.cs" />
+    <Compile Include="DAL\MiscDB.cs" />
+    <Compile Include="DAL\SessionsDB.cs" />
+    <Compile Include="Delegator.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Delegator_Case.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentationOffice.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccounting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccounting.Designer.cs">
+      <DependentUpon>frmAccounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCase.Designer.cs">
+      <DependentUpon>frmCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChamber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChamber.Designer.cs">
+      <DependentUpon>frmChamber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCourt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCourt.Designer.cs">
+      <DependentUpon>frmCourt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDefendLowers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDefendLowers.Designer.cs">
+      <DependentUpon>frmDefendLowers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDelegator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDelegator.Designer.cs">
+      <DependentUpon>frmDelegator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDocOffice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDocOffice.Designer.cs">
+      <DependentUpon>frmDocOffice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMaster.Designer.cs">
+      <DependentUpon>frmMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewCase.Designer.cs">
+      <DependentUpon>frmNewCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPayments.Designer.cs">
+      <DependentUpon>frmPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRegion.Designer.cs">
+      <DependentUpon>frmRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSessions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSessions.Designer.cs">
+      <DependentUpon>frmSessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OfficeData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OfficeData.Designer.cs">
+      <DependentUpon>OfficeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phone.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\xmlConfiguration.Designer.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SlModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SlModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SlModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>SlModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xmlConfiguration1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>xmlConfiguration.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmAccounting.resx">
+      <DependentUpon>frmAccounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCase.resx">
+      <DependentUpon>frmCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChamber.resx">
+      <DependentUpon>frmChamber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCourt.resx">
+      <DependentUpon>frmCourt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDefendLowers.resx">
+      <DependentUpon>frmDefendLowers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDelegator.resx">
+      <DependentUpon>frmDelegator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDocOffice.resx">
+      <DependentUpon>frmDocOffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMaster.resx">
+      <DependentUpon>frmMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewCase.resx">
+      <DependentUpon>frmNewCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPayments.resx">
+      <DependentUpon>frmPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRegion.resx">
+      <DependentUpon>frmRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSessions.resx">
+      <DependentUpon>frmSessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OfficeData.resx">
+      <DependentUpon>OfficeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="LowerApplication_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="SlModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SlModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SlModel.edmx.diagram">
+      <DependentUpon>SlModel.edmx</DependentUpon>
+    </None>
+    <None Include="xmlConfiguration.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>xmlConfiguration1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1353914072_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue_ok2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome_logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.PNG" />
+    <None Include="Resources\مطرقة.jpg" />
+    <None Include="Resources\main_Backgroud.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money-icon.png" />
+    <None Include="Resources\Money-Safe-1-icon.png" />
+    <None Include="Resources\Clients-icon.png" />
+    <None Include="Resources\Case-icon.png" />
+    <None Include="Resources\Map-Marker-Marker-Outside-Azure-icon.png" />
+    <None Include="Resources\Map-Marker-Ball-Azure-icon.png" />
+    <None Include="Resources\Judge-icon.png" />
+    <None Include="Resources\payment-icon.png" />
+    <None Include="Resources\Text-Edit-icon.png" />
+    <None Include="Resources\SEO-icon.png" />
+    <None Include="Resources\company-building-icon.png" />
+    <None Include="Resources\user-info-icon.png" />
+    <Content Include="SlModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SlModel.edmx</DependentUpon>
+      <LastGenOutput>SlModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SlModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SlModel.edmx</DependentUpon>
+      <LastGenOutput>SlModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="LowerApplication.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

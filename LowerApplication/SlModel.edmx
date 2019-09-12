@@ -1,0 +1,943 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmartLowerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Case">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminNumber" Type="nvarchar(max)" />
+          <Property Name="AdminString" Type="nvarchar(max)" />
+          <Property Name="FineNumber" Type="nvarchar(max)" />
+          <Property Name="FineString" Type="nvarchar(max)" />
+          <Property Name="InvestigationNumber" Type="nvarchar(max)" />
+          <Property Name="InvestigationString" Type="nvarchar(max)" />
+          <Property Name="ImprisonmentNumber" Type="nvarchar(max)" />
+          <Property Name="ImprisonmentString" Type="nvarchar(max)" />
+          <Property Name="PartialNumber" Type="nvarchar(max)" />
+          <Property Name="PartialString" Type="nvarchar(max)" />
+          <Property Name="TotalNumber" Type="nvarchar(max)" />
+          <Property Name="TotalString" Type="nvarchar(max)" />
+          <Property Name="DelegationNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DelegationLetter" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocumentationOffice" Type="nvarchar(max)" />
+          <Property Name="CaseRecevingDate" Type="date" Nullable="false" />
+          <Property Name="OfficeID" Type="int" Nullable="false" />
+          <Property Name="CourtID" Type="int" Nullable="false" />
+          <Property Name="ChamberID" Type="int" Nullable="false" />
+          <Property Name="CaseSubject" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CaseDetails" Type="nvarchar(max)" />
+          <Property Name="TotalPresentAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalInstallsAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalRetensionAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ResponsibleLower" Type="nvarchar(max)" />
+          <Property Name="DelegationString" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CasePayment">
+          <Key>
+            <PropertyRef Name="PaymentDetailsId" />
+          </Key>
+          <Property Name="PaymentDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CaseID" Type="int" Nullable="false" />
+          <Property Name="InstallmentType" Type="int" Nullable="false" />
+          <Property Name="InstallmentAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="InstallmentDetails" Type="nvarchar(max)" />
+          <Property Name="PayerName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CaseSessions">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CaseID" Type="int" Nullable="false" />
+          <Property Name="RollNumber" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SessionDate" Type="date" Nullable="false" />
+          <Property Name="SessionDetails" Type="nvarchar(max)" />
+          <Property Name="SessionCommandsOrders" Type="nvarchar(max)" />
+          <Property Name="SessionNotes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Chamber">
+          <Key>
+            <PropertyRef Name="ChamberID" />
+          </Key>
+          <Property Name="ChamberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourtID" Type="int" Nullable="false" />
+          <Property Name="ChamberName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChamberAdress" Type="nvarchar(max)" />
+          <Property Name="ChamberDetails" Type="nvarchar(max)" />
+          <Property Name="ChamberBossName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CLowers_Case">
+          <Key>
+            <PropertyRef Name="CLowerID" />
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CLowerID" Type="int" Nullable="false" />
+          <Property Name="CaseID" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CompetitorLower">
+          <Key>
+            <PropertyRef Name="CLowerID" />
+          </Key>
+          <Property Name="CLowerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLowerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CLowerOffice" Type="nvarchar(max)" />
+          <Property Name="CLowerDetails" Type="nvarchar(max)" />
+          <Property Name="CLowerPhone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Court">
+          <Key>
+            <PropertyRef Name="CourtID" />
+          </Key>
+          <Property Name="CourtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourtName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CourtRegionID" Type="int" Nullable="false" />
+          <Property Name="CourtAddress" Type="nvarchar(max)" />
+          <Property Name="CourtDetails" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Delegator">
+          <Key>
+            <PropertyRef Name="DelID" />
+          </Key>
+          <Property Name="DelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DelName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DelAddress" Type="nvarchar(max)" />
+          <Property Name="DelMobile" Type="nvarchar(max)" />
+          <Property Name="DelPhone" Type="nvarchar(max)" />
+          <Property Name="DelDetails" Type="nvarchar(max)" />
+          <Property Name="DelSSN" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Delegator_Case">
+          <Key>
+            <PropertyRef Name="DelID" />
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="DelID" Type="int" Nullable="false" />
+          <Property Name="CaseID" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DocumentationOffice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeArName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmployeeEnName" Type="nvarchar(max)" />
+          <Property Name="EmployeeDetails" Type="nvarchar(max)" />
+          <Property Name="EmployeeJobTitleID" Type="int" />
+          <Property Name="EmployeeDepID" Type="int" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OfficeAddress" Type="nvarchar(max)" />
+          <Property Name="OfficeDetails" Type="nvarchar(max)" />
+          <Property Name="OfficeLogo" Type="image" />
+        </EntityType>
+        <EntityType Name="Phones">
+          <Key>
+            <PropertyRef Name="PhoneTypeID" />
+          </Key>
+          <Property Name="PhoneTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeID" Type="int" Nullable="false" />
+          <Property Name="PhoneType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneDetails" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RegionDetails" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_CasePayment_Case">
+          <End Role="Case" Type="Self.Case" Multiplicity="1" />
+          <End Role="CasePayment" Type="Self.CasePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CasePayment">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CaseSessions_Case">
+          <End Role="Case" Type="Self.Case" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CaseSessions" Type="Self.CaseSessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CaseSessions">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chamber_Court">
+          <End Role="Court" Type="Self.Court" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Chamber" Type="Self.Chamber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Court">
+              <PropertyRef Name="CourtID" />
+            </Principal>
+            <Dependent Role="Chamber">
+              <PropertyRef Name="CourtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLowers_Case_Case">
+          <End Role="Case" Type="Self.Case" Multiplicity="1" />
+          <End Role="CLowers_Case" Type="Self.CLowers_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CLowers_Case">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLowers_Case_CompetitorLower">
+          <End Role="CompetitorLower" Type="Self.CompetitorLower" Multiplicity="1" />
+          <End Role="CLowers_Case" Type="Self.CLowers_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitorLower">
+              <PropertyRef Name="CLowerID" />
+            </Principal>
+            <Dependent Role="CLowers_Case">
+              <PropertyRef Name="CLowerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Court_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Court" Type="Self.Court" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="Court">
+              <PropertyRef Name="CourtRegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delegator_Case_Case">
+          <End Role="Case" Type="Self.Case" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Delegator_Case" Type="Self.Delegator_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="Delegator_Case">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delegator_Case_Delegator">
+          <End Role="Delegator" Type="Self.Delegator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Delegator_Case" Type="Self.Delegator_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delegator">
+              <PropertyRef Name="DelID" />
+            </Principal>
+            <Dependent Role="Delegator_Case">
+              <PropertyRef Name="DelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phones_Office">
+          <End Role="Office" Type="Self.Office" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Phones" Type="Self.Phones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="Phones">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SmartLowerModelStoreContainer">
+          <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CasePayment" EntityType="Self.CasePayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaseSessions" EntityType="Self.CaseSessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chamber" EntityType="Self.Chamber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLowers_Case" EntityType="Self.CLowers_Case" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetitorLower" EntityType="Self.CompetitorLower" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Court" EntityType="Self.Court" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delegator" EntityType="Self.Delegator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delegator_Case" EntityType="Self.Delegator_Case" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentationOffice" EntityType="Self.DocumentationOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phones" EntityType="Self.Phones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CasePayment_Case" Association="Self.FK_CasePayment_Case">
+            <End Role="Case" EntitySet="Case" />
+            <End Role="CasePayment" EntitySet="CasePayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CaseSessions_Case" Association="Self.FK_CaseSessions_Case">
+            <End Role="Case" EntitySet="Case" />
+            <End Role="CaseSessions" EntitySet="CaseSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chamber_Court" Association="Self.FK_Chamber_Court">
+            <End Role="Court" EntitySet="Court" />
+            <End Role="Chamber" EntitySet="Chamber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLowers_Case_Case" Association="Self.FK_CLowers_Case_Case">
+            <End Role="Case" EntitySet="Case" />
+            <End Role="CLowers_Case" EntitySet="CLowers_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLowers_Case_CompetitorLower" Association="Self.FK_CLowers_Case_CompetitorLower">
+            <End Role="CompetitorLower" EntitySet="CompetitorLower" />
+            <End Role="CLowers_Case" EntitySet="CLowers_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Court_Region" Association="Self.FK_Court_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Court" EntitySet="Court" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delegator_Case_Case" Association="Self.FK_Delegator_Case_Case">
+            <End Role="Case" EntitySet="Case" />
+            <End Role="Delegator_Case" EntitySet="Delegator_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delegator_Case_Delegator" Association="Self.FK_Delegator_Case_Delegator">
+            <End Role="Delegator" EntitySet="Delegator" />
+            <End Role="Delegator_Case" EntitySet="Delegator_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phones_Office" Association="Self.FK_Phones_Office">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="Phones" EntitySet="Phones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartLowerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SmartLowerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CasePayments" EntityType="SmartLowerModel.CasePayment" />
+          <EntitySet Name="CaseSessions" EntityType="SmartLowerModel.CaseSession" />
+          <EntitySet Name="Chambers" EntityType="SmartLowerModel.Chamber" />
+          <EntitySet Name="CLowers_Case" EntityType="SmartLowerModel.CLowers_Case" />
+          <EntitySet Name="CompetitorLowers" EntityType="SmartLowerModel.CompetitorLower" />
+          <EntitySet Name="Courts" EntityType="SmartLowerModel.Court" />
+          <EntitySet Name="Delegators" EntityType="SmartLowerModel.Delegator" />
+          <EntitySet Name="Delegator_Case" EntityType="SmartLowerModel.Delegator_Case" />
+          <EntitySet Name="DocumentationOffices" EntityType="SmartLowerModel.DocumentationOffice" />
+          <EntitySet Name="Employees" EntityType="SmartLowerModel.Employee" />
+          <EntitySet Name="Offices" EntityType="SmartLowerModel.Office" />
+          <EntitySet Name="Phones" EntityType="SmartLowerModel.Phone" />
+          <EntitySet Name="Regions" EntityType="SmartLowerModel.Region" />
+          <EntitySet Name="sysdiagrams" EntityType="SmartLowerModel.sysdiagram" />
+          <AssociationSet Name="FK_Chamber_Court" Association="SmartLowerModel.FK_Chamber_Court">
+            <End Role="Court" EntitySet="Courts" />
+            <End Role="Chamber" EntitySet="Chambers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLowers_Case_CompetitorLower" Association="SmartLowerModel.FK_CLowers_Case_CompetitorLower">
+            <End Role="CompetitorLower" EntitySet="CompetitorLowers" />
+            <End Role="CLowers_Case" EntitySet="CLowers_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Court_Region" Association="SmartLowerModel.FK_Court_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Court" EntitySet="Courts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delegator_Case_Delegator" Association="SmartLowerModel.FK_Delegator_Case_Delegator">
+            <End Role="Delegator" EntitySet="Delegators" />
+            <End Role="Delegator_Case" EntitySet="Delegator_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phones_Office" Association="SmartLowerModel.FK_Phones_Office">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <EntitySet Name="Cases" EntityType="SmartLowerModel.Case" />
+          <AssociationSet Name="FK_CasePayment_Case" Association="SmartLowerModel.FK_CasePayment_Case">
+            <End Role="Case" EntitySet="Cases" />
+            <End Role="CasePayment" EntitySet="CasePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CaseSessions_Case" Association="SmartLowerModel.FK_CaseSessions_Case">
+            <End Role="Case" EntitySet="Cases" />
+            <End Role="CaseSession" EntitySet="CaseSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLowers_Case_Case" Association="SmartLowerModel.FK_CLowers_Case_Case">
+            <End Role="Case" EntitySet="Cases" />
+            <End Role="CLowers_Case" EntitySet="CLowers_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delegator_Case_Case" Association="SmartLowerModel.FK_Delegator_Case_Case">
+            <End Role="Case" EntitySet="Cases" />
+            <End Role="Delegator_Case" EntitySet="Delegator_Case" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CasePayment">
+          <Key>
+            <PropertyRef Name="PaymentDetailsId" />
+          </Key>
+          <Property Name="PaymentDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CaseID" Type="Int32" Nullable="false" />
+          <Property Name="InstallmentType" Type="Int32" Nullable="false" />
+          <Property Name="InstallmentAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="InstallmentDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PayerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Case" Relationship="SmartLowerModel.FK_CasePayment_Case" FromRole="CasePayment" ToRole="Case" />
+        </EntityType>
+        <EntityType Name="CaseSession">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CaseID" Type="Int32" Nullable="false" />
+          <Property Name="RollNumber" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SessionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SessionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SessionCommandsOrders" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SessionNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Case" Relationship="SmartLowerModel.FK_CaseSessions_Case" FromRole="CaseSession" ToRole="Case" />
+        </EntityType>
+        <EntityType Name="Chamber">
+          <Key>
+            <PropertyRef Name="ChamberID" />
+          </Key>
+          <Property Name="ChamberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourtID" Type="Int32" Nullable="false" />
+          <Property Name="ChamberName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChamberAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChamberDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChamberBossName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Court" Relationship="SmartLowerModel.FK_Chamber_Court" FromRole="Chamber" ToRole="Court" />
+        </EntityType>
+        <EntityType Name="CLowers_Case">
+          <Key>
+            <PropertyRef Name="CLowerID" />
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CLowerID" Type="Int32" Nullable="false" />
+          <Property Name="CaseID" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CompetitorLower" Relationship="SmartLowerModel.FK_CLowers_Case_CompetitorLower" FromRole="CLowers_Case" ToRole="CompetitorLower" />
+          <NavigationProperty Name="Case" Relationship="SmartLowerModel.FK_CLowers_Case_Case" FromRole="CLowers_Case" ToRole="Case" />
+        </EntityType>
+        <EntityType Name="CompetitorLower">
+          <Key>
+            <PropertyRef Name="CLowerID" />
+          </Key>
+          <Property Name="CLowerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLowerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLowerOffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLowerDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CLowers_Case" Relationship="SmartLowerModel.FK_CLowers_Case_CompetitorLower" FromRole="CompetitorLower" ToRole="CLowers_Case" />
+          <Property Name="CLowerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Court">
+          <Key>
+            <PropertyRef Name="CourtID" />
+          </Key>
+          <Property Name="CourtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourtName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourtRegionID" Type="Int32" Nullable="false" />
+          <Property Name="CourtAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourtDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chambers" Relationship="SmartLowerModel.FK_Chamber_Court" FromRole="Court" ToRole="Chamber" />
+          <NavigationProperty Name="Region" Relationship="SmartLowerModel.FK_Court_Region" FromRole="Court" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Delegator">
+          <Key>
+            <PropertyRef Name="DelID" />
+          </Key>
+          <Property Name="DelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DelName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelMobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelSSN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Delegator_Case" Relationship="SmartLowerModel.FK_Delegator_Case_Delegator" FromRole="Delegator" ToRole="Delegator_Case" />
+        </EntityType>
+        <EntityType Name="Delegator_Case">
+          <Key>
+            <PropertyRef Name="DelID" />
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="DelID" Type="Int32" Nullable="false" />
+          <Property Name="CaseID" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Delegator" Relationship="SmartLowerModel.FK_Delegator_Case_Delegator" FromRole="Delegator_Case" ToRole="Delegator" />
+          <NavigationProperty Name="Case" Relationship="SmartLowerModel.FK_Delegator_Case_Case" FromRole="Delegator_Case" ToRole="Case" />
+        </EntityType>
+        <EntityType Name="DocumentationOffice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeArName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeEnName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeJobTitleID" Type="Int32" />
+          <Property Name="EmployeeDepID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Phones" Relationship="SmartLowerModel.FK_Phones_Office" FromRole="Office" ToRole="Phone" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneTypeID" />
+          </Key>
+          <Property Name="PhoneTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Office" Relationship="SmartLowerModel.FK_Phones_Office" FromRole="Phone" ToRole="Office" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courts" Relationship="SmartLowerModel.FK_Court_Region" FromRole="Region" ToRole="Court" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Chamber_Court">
+          <End Type="SmartLowerModel.Court" Role="Court" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.Chamber" Role="Chamber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Court">
+              <PropertyRef Name="CourtID" />
+            </Principal>
+            <Dependent Role="Chamber">
+              <PropertyRef Name="CourtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLowers_Case_CompetitorLower">
+          <End Type="SmartLowerModel.CompetitorLower" Role="CompetitorLower" Multiplicity="1" />
+          <End Type="SmartLowerModel.CLowers_Case" Role="CLowers_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitorLower">
+              <PropertyRef Name="CLowerID" />
+            </Principal>
+            <Dependent Role="CLowers_Case">
+              <PropertyRef Name="CLowerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Court_Region">
+          <End Type="SmartLowerModel.Region" Role="Region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.Court" Role="Court" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="Court">
+              <PropertyRef Name="CourtRegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delegator_Case_Delegator">
+          <End Type="SmartLowerModel.Delegator" Role="Delegator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.Delegator_Case" Role="Delegator_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delegator">
+              <PropertyRef Name="DelID" />
+            </Principal>
+            <Dependent Role="Delegator_Case">
+              <PropertyRef Name="DelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phones_Office">
+          <End Type="SmartLowerModel.Office" Role="Office" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.Phone" Role="Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Case">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdminString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FineNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FineString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvestigationNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvestigationString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImprisonmentNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImprisonmentString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartialNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartialString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelegationNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DelegationLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentationOffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CaseRecevingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OfficeID" Type="Int32" Nullable="false" />
+          <Property Name="CourtID" Type="Int32" Nullable="false" />
+          <Property Name="ChamberID" Type="Int32" Nullable="false" />
+          <Property Name="CaseSubject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CaseDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPresentAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalInstallsAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalRetensionAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ResponsibleLower" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CasePayments" Relationship="SmartLowerModel.FK_CasePayment_Case" FromRole="Case" ToRole="CasePayment" />
+          <NavigationProperty Name="CaseSessions" Relationship="SmartLowerModel.FK_CaseSessions_Case" FromRole="Case" ToRole="CaseSession" />
+          <NavigationProperty Name="CLowers_Case" Relationship="SmartLowerModel.FK_CLowers_Case_Case" FromRole="Case" ToRole="CLowers_Case" />
+          <NavigationProperty Name="Delegator_Case" Relationship="SmartLowerModel.FK_Delegator_Case_Case" FromRole="Case" ToRole="Delegator_Case" />
+          <Property Name="DelegationString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CasePayment_Case">
+          <End Type="SmartLowerModel.Case" Role="Case" Multiplicity="1" />
+          <End Type="SmartLowerModel.CasePayment" Role="CasePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CasePayment">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CaseSessions_Case">
+          <End Type="SmartLowerModel.Case" Role="Case" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.CaseSession" Role="CaseSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CaseSession">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLowers_Case_Case">
+          <End Type="SmartLowerModel.Case" Role="Case" Multiplicity="1" />
+          <End Type="SmartLowerModel.CLowers_Case" Role="CLowers_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="CLowers_Case">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delegator_Case_Case">
+          <End Type="SmartLowerModel.Case" Role="Case" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SmartLowerModel.Delegator_Case" Role="Delegator_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case">
+              <PropertyRef Name="CaseID" />
+            </Principal>
+            <Dependent Role="Delegator_Case">
+              <PropertyRef Name="CaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartLowerModelStoreContainer" CdmEntityContainer="SmartLowerEntities">
+          <EntitySetMapping Name="CasePayments">
+            <EntityTypeMapping TypeName="SmartLowerModel.CasePayment">
+              <MappingFragment StoreEntitySet="CasePayment">
+                <ScalarProperty Name="PayerName" ColumnName="PayerName" />
+                <ScalarProperty Name="InstallmentDetails" ColumnName="InstallmentDetails" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="InstallmentAmount" ColumnName="InstallmentAmount" />
+                <ScalarProperty Name="InstallmentType" ColumnName="InstallmentType" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="PaymentDetailsId" ColumnName="PaymentDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaseSessions">
+            <EntityTypeMapping TypeName="SmartLowerModel.CaseSession">
+              <MappingFragment StoreEntitySet="CaseSessions">
+                <ScalarProperty Name="SessionNotes" ColumnName="SessionNotes" />
+                <ScalarProperty Name="SessionCommandsOrders" ColumnName="SessionCommandsOrders" />
+                <ScalarProperty Name="SessionDetails" ColumnName="SessionDetails" />
+                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+                <ScalarProperty Name="RollNumber" ColumnName="RollNumber" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chambers">
+            <EntityTypeMapping TypeName="SmartLowerModel.Chamber">
+              <MappingFragment StoreEntitySet="Chamber">
+                <ScalarProperty Name="ChamberBossName" ColumnName="ChamberBossName" />
+                <ScalarProperty Name="ChamberDetails" ColumnName="ChamberDetails" />
+                <ScalarProperty Name="ChamberAdress" ColumnName="ChamberAdress" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+                <ScalarProperty Name="CourtID" ColumnName="CourtID" />
+                <ScalarProperty Name="ChamberID" ColumnName="ChamberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLowers_Case">
+            <EntityTypeMapping TypeName="SmartLowerModel.CLowers_Case">
+              <MappingFragment StoreEntitySet="CLowers_Case">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="CLowerID" ColumnName="CLowerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitorLowers">
+            <EntityTypeMapping TypeName="SmartLowerModel.CompetitorLower">
+              <MappingFragment StoreEntitySet="CompetitorLower">
+                <ScalarProperty Name="CLowerPhone" ColumnName="CLowerPhone" />
+                <ScalarProperty Name="CLowerDetails" ColumnName="CLowerDetails" />
+                <ScalarProperty Name="CLowerOffice" ColumnName="CLowerOffice" />
+                <ScalarProperty Name="CLowerName" ColumnName="CLowerName" />
+                <ScalarProperty Name="CLowerID" ColumnName="CLowerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courts">
+            <EntityTypeMapping TypeName="SmartLowerModel.Court">
+              <MappingFragment StoreEntitySet="Court">
+                <ScalarProperty Name="CourtDetails" ColumnName="CourtDetails" />
+                <ScalarProperty Name="CourtAddress" ColumnName="CourtAddress" />
+                <ScalarProperty Name="CourtRegionID" ColumnName="CourtRegionID" />
+                <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+                <ScalarProperty Name="CourtID" ColumnName="CourtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delegators">
+            <EntityTypeMapping TypeName="SmartLowerModel.Delegator">
+              <MappingFragment StoreEntitySet="Delegator">
+                <ScalarProperty Name="DelSSN" ColumnName="DelSSN" />
+                <ScalarProperty Name="DelDetails" ColumnName="DelDetails" />
+                <ScalarProperty Name="DelPhone" ColumnName="DelPhone" />
+                <ScalarProperty Name="DelMobile" ColumnName="DelMobile" />
+                <ScalarProperty Name="DelAddress" ColumnName="DelAddress" />
+                <ScalarProperty Name="DelName" ColumnName="DelName" />
+                <ScalarProperty Name="DelID" ColumnName="DelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delegator_Case">
+            <EntityTypeMapping TypeName="SmartLowerModel.Delegator_Case">
+              <MappingFragment StoreEntitySet="Delegator_Case">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="DelID" ColumnName="DelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentationOffices">
+            <EntityTypeMapping TypeName="SmartLowerModel.DocumentationOffice">
+              <MappingFragment StoreEntitySet="DocumentationOffice">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SmartLowerModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeDepID" ColumnName="EmployeeDepID" />
+                <ScalarProperty Name="EmployeeJobTitleID" ColumnName="EmployeeJobTitleID" />
+                <ScalarProperty Name="EmployeeDetails" ColumnName="EmployeeDetails" />
+                <ScalarProperty Name="EmployeeEnName" ColumnName="EmployeeEnName" />
+                <ScalarProperty Name="EmployeeArName" ColumnName="EmployeeArName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices">
+            <EntityTypeMapping TypeName="SmartLowerModel.Office">
+              <MappingFragment StoreEntitySet="Office">
+                <ScalarProperty Name="OfficeLogo" ColumnName="OfficeLogo" />
+                <ScalarProperty Name="OfficeDetails" ColumnName="OfficeDetails" />
+                <ScalarProperty Name="OfficeAddress" ColumnName="OfficeAddress" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="SmartLowerModel.Phone">
+              <MappingFragment StoreEntitySet="Phones">
+                <ScalarProperty Name="PhoneDetails" ColumnName="PhoneDetails" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneType" ColumnName="PhoneType" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="PhoneTypeID" ColumnName="PhoneTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="SmartLowerModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="RegionDetails" ColumnName="RegionDetails" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SmartLowerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cases">
+            <EntityTypeMapping TypeName="SmartLowerModel.Case">
+              <MappingFragment StoreEntitySet="Case">
+                <ScalarProperty Name="DelegationString" ColumnName="DelegationString" />
+                <ScalarProperty Name="ResponsibleLower" ColumnName="ResponsibleLower" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="TotalRetensionAmount" ColumnName="TotalRetensionAmount" />
+                <ScalarProperty Name="TotalInstallsAmount" ColumnName="TotalInstallsAmount" />
+                <ScalarProperty Name="TotalPresentAmount" ColumnName="TotalPresentAmount" />
+                <ScalarProperty Name="CaseDetails" ColumnName="CaseDetails" />
+                <ScalarProperty Name="CaseSubject" ColumnName="CaseSubject" />
+                <ScalarProperty Name="ChamberID" ColumnName="ChamberID" />
+                <ScalarProperty Name="CourtID" ColumnName="CourtID" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="CaseRecevingDate" ColumnName="CaseRecevingDate" />
+                <ScalarProperty Name="DocumentationOffice" ColumnName="DocumentationOffice" />
+                <ScalarProperty Name="DelegationLetter" ColumnName="DelegationLetter" />
+                <ScalarProperty Name="DelegationNumber" ColumnName="DelegationNumber" />
+                <ScalarProperty Name="TotalString" ColumnName="TotalString" />
+                <ScalarProperty Name="TotalNumber" ColumnName="TotalNumber" />
+                <ScalarProperty Name="PartialString" ColumnName="PartialString" />
+                <ScalarProperty Name="PartialNumber" ColumnName="PartialNumber" />
+                <ScalarProperty Name="ImprisonmentString" ColumnName="ImprisonmentString" />
+                <ScalarProperty Name="ImprisonmentNumber" ColumnName="ImprisonmentNumber" />
+                <ScalarProperty Name="InvestigationString" ColumnName="InvestigationString" />
+                <ScalarProperty Name="InvestigationNumber" ColumnName="InvestigationNumber" />
+                <ScalarProperty Name="FineString" ColumnName="FineString" />
+                <ScalarProperty Name="FineNumber" ColumnName="FineNumber" />
+                <ScalarProperty Name="AdminString" ColumnName="AdminString" />
+                <ScalarProperty Name="AdminNumber" ColumnName="AdminNumber" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
