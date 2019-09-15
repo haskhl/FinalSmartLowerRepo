@@ -30,16 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.rcMain = new DevComponents.DotNetBar.RibbonControl();
-            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.rbGeneralInfo = new DevComponents.DotNetBar.RibbonBar();
-            this.btnOfficeData = new DevComponents.DotNetBar.ButtonItem();
-            this.btnAboutus = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnVista = new DevComponents.DotNetBar.ButtonItem();
-            this.btnBlack = new DevComponents.DotNetBar.ButtonItem();
-            this.btnSilver = new DevComponents.DotNetBar.ButtonItem();
-            this.btnBlue = new DevComponents.DotNetBar.ButtonItem();
-            this.clrPckrCustomiz = new DevComponents.DotNetBar.ColorPickerDropDown();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.rbCourt = new DevComponents.DotNetBar.RibbonBar();
             this.btnRegions = new DevComponents.DotNetBar.ButtonItem();
@@ -57,13 +47,23 @@
             this.btnPayment = new DevComponents.DotNetBar.ButtonItem();
             this.btnCalcs = new DevComponents.DotNetBar.ButtonItem();
             this.التقارير = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.rbGeneralInfo = new DevComponents.DotNetBar.RibbonBar();
+            this.btnOfficeData = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAboutus = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnVista = new DevComponents.DotNetBar.ButtonItem();
+            this.btnBlack = new DevComponents.DotNetBar.ButtonItem();
+            this.btnSilver = new DevComponents.DotNetBar.ButtonItem();
+            this.btnBlue = new DevComponents.DotNetBar.ButtonItem();
+            this.clrPckrCustomiz = new DevComponents.DotNetBar.ColorPickerDropDown();
             this.rtiGeneralSettings = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
             this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.rcMain.SuspendLayout();
-            this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
+            this.ribbonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rcMain
@@ -105,181 +105,6 @@
             this.rcMain.SystemText.QatRemoveItemText = "&Remove from Quick Access Toolbar";
             this.rcMain.TabGroupHeight = 14;
             this.rcMain.TabIndex = 0;
-            // 
-            // ribbonPanel1
-            // 
-            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel1.Controls.Add(this.rbGeneralInfo);
-            this.ribbonPanel1.Controls.Add(this.ribbonBar1);
-            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel1.Location = new System.Drawing.Point(0, 70);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ribbonPanel1.Size = new System.Drawing.Size(1190, 98);
-            // 
-            // 
-            // 
-            this.ribbonPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel1.TabIndex = 1;
-            this.ribbonPanel1.Visible = false;
-            // 
-            // rbGeneralInfo
-            // 
-            this.rbGeneralInfo.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.rbGeneralInfo.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbGeneralInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.rbGeneralInfo.ContainerControlProcessDialogKey = true;
-            this.rbGeneralInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rbGeneralInfo.DragDropSupport = true;
-            this.rbGeneralInfo.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnOfficeData,
-            this.btnAboutus});
-            this.rbGeneralInfo.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
-            this.rbGeneralInfo.Location = new System.Drawing.Point(437, 0);
-            this.rbGeneralInfo.Name = "rbGeneralInfo";
-            this.rbGeneralInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rbGeneralInfo.Size = new System.Drawing.Size(191, 95);
-            this.rbGeneralInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.rbGeneralInfo.TabIndex = 1;
-            this.rbGeneralInfo.Text = "البيانات الأساسية";
-            // 
-            // 
-            // 
-            this.rbGeneralInfo.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbGeneralInfo.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnOfficeData
-            // 
-            this.btnOfficeData.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnOfficeData.FontBold = true;
-            this.btnOfficeData.Image = global::LowerApplication.Properties.Resources.company_building_icon;
-            this.btnOfficeData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnOfficeData.Name = "btnOfficeData";
-            this.btnOfficeData.SubItemsExpandWidth = 14;
-            this.btnOfficeData.Text = "المكاتب";
-            this.btnOfficeData.Click += new System.EventHandler(this.btnOfficeData_Click);
-            // 
-            // btnAboutus
-            // 
-            this.btnAboutus.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnAboutus.FontBold = true;
-            this.btnAboutus.Image = global::LowerApplication.Properties.Resources.user_info_icon;
-            this.btnAboutus.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnAboutus.Name = "btnAboutus";
-            this.btnAboutus.SubItemsExpandWidth = 14;
-            this.btnAboutus.Text = "عن الشركة";
-            this.btnAboutus.Click += new System.EventHandler(this.btnAboutus_Click);
-            // 
-            // ribbonBar1
-            // 
-            this.ribbonBar1.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ContainerControlProcessDialogKey = true;
-            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ribbonBar1.DragDropSupport = true;
-            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnVista,
-            this.btnBlack,
-            this.btnSilver,
-            this.btnBlue,
-            this.clrPckrCustomiz});
-            this.ribbonBar1.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
-            this.ribbonBar1.Location = new System.Drawing.Point(628, 0);
-            this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ribbonBar1.Size = new System.Drawing.Size(559, 95);
-            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar1.TabIndex = 2;
-            this.ribbonBar1.Text = "اعدادات الالوان";
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnVista
-            // 
-            this.btnVista.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnVista.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnVista.FontBold = true;
-            this.btnVista.Image = global::LowerApplication.Properties.Resources.vista;
-            this.btnVista.Name = "btnVista";
-            this.btnVista.SubItemsExpandWidth = 14;
-            this.btnVista.Text = "فيستا";
-            this.btnVista.Click += new System.EventHandler(this.btnVista_Click);
-            // 
-            // btnBlack
-            // 
-            this.btnBlack.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnBlack.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnBlack.FontBold = true;
-            this.btnBlack.Image = ((System.Drawing.Image)(resources.GetObject("btnBlack.Image")));
-            this.btnBlack.Name = "btnBlack";
-            this.btnBlack.SubItemsExpandWidth = 14;
-            this.btnBlack.Text = "أســود";
-            this.btnBlack.Click += new System.EventHandler(this.btnBlack_Click);
-            // 
-            // btnSilver
-            // 
-            this.btnSilver.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnSilver.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnSilver.FontBold = true;
-            this.btnSilver.Image = ((System.Drawing.Image)(resources.GetObject("btnSilver.Image")));
-            this.btnSilver.Name = "btnSilver";
-            this.btnSilver.SubItemsExpandWidth = 14;
-            this.btnSilver.Text = "فضـــــــي";
-            this.btnSilver.Click += new System.EventHandler(this.btnSilver_Click);
-            // 
-            // btnBlue
-            // 
-            this.btnBlue.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnBlue.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.btnBlue.FontBold = true;
-            this.btnBlue.Image = global::LowerApplication.Properties.Resources.Blue;
-            this.btnBlue.Name = "btnBlue";
-            this.btnBlue.SubItemsExpandWidth = 14;
-            this.btnBlue.Text = "أزرق";
-            this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
-            // 
-            // clrPckrCustomiz
-            // 
-            this.clrPckrCustomiz.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.clrPckrCustomiz.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.clrPckrCustomiz.FontBold = true;
-            this.clrPckrCustomiz.Image = ((System.Drawing.Image)(resources.GetObject("clrPckrCustomiz.Image")));
-            this.clrPckrCustomiz.Name = "clrPckrCustomiz";
-            this.clrPckrCustomiz.SubItemsExpandWidth = 14;
-            this.clrPckrCustomiz.Text = "تخصيص";
-            this.clrPckrCustomiz.SelectedColorChanged += new System.EventHandler(this.clrPckrCustomiz_SelectedColorChanged);
-            this.clrPckrCustomiz.ExpandChange += new System.EventHandler(this.clrPckrCustomiz_ExpandChange);
             // 
             // ribbonPanel2
             // 
@@ -587,6 +412,181 @@
             this.التقارير.Name = "التقارير";
             this.التقارير.Text = "التقارير";
             // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel1.Controls.Add(this.rbGeneralInfo);
+            this.ribbonPanel1.Controls.Add(this.ribbonBar1);
+            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel1.Location = new System.Drawing.Point(0, 70);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ribbonPanel1.Size = new System.Drawing.Size(1190, 98);
+            // 
+            // 
+            // 
+            this.ribbonPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
+            // 
+            // rbGeneralInfo
+            // 
+            this.rbGeneralInfo.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.rbGeneralInfo.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbGeneralInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbGeneralInfo.ContainerControlProcessDialogKey = true;
+            this.rbGeneralInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rbGeneralInfo.DragDropSupport = true;
+            this.rbGeneralInfo.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnOfficeData,
+            this.btnAboutus});
+            this.rbGeneralInfo.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
+            this.rbGeneralInfo.Location = new System.Drawing.Point(437, 0);
+            this.rbGeneralInfo.Name = "rbGeneralInfo";
+            this.rbGeneralInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rbGeneralInfo.Size = new System.Drawing.Size(191, 95);
+            this.rbGeneralInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.rbGeneralInfo.TabIndex = 1;
+            this.rbGeneralInfo.Text = "البيانات الأساسية";
+            // 
+            // 
+            // 
+            this.rbGeneralInfo.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbGeneralInfo.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnOfficeData
+            // 
+            this.btnOfficeData.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnOfficeData.FontBold = true;
+            this.btnOfficeData.Image = global::LowerApplication.Properties.Resources.company_building_icon;
+            this.btnOfficeData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnOfficeData.Name = "btnOfficeData";
+            this.btnOfficeData.SubItemsExpandWidth = 14;
+            this.btnOfficeData.Text = "المكاتب";
+            this.btnOfficeData.Click += new System.EventHandler(this.btnOfficeData_Click);
+            // 
+            // btnAboutus
+            // 
+            this.btnAboutus.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnAboutus.FontBold = true;
+            this.btnAboutus.Image = global::LowerApplication.Properties.Resources.user_info_icon;
+            this.btnAboutus.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnAboutus.Name = "btnAboutus";
+            this.btnAboutus.SubItemsExpandWidth = 14;
+            this.btnAboutus.Text = "عن الشركة";
+            this.btnAboutus.Click += new System.EventHandler(this.btnAboutus_Click);
+            // 
+            // ribbonBar1
+            // 
+            this.ribbonBar1.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar1.ContainerControlProcessDialogKey = true;
+            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ribbonBar1.DragDropSupport = true;
+            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnVista,
+            this.btnBlack,
+            this.btnSilver,
+            this.btnBlue,
+            this.clrPckrCustomiz});
+            this.ribbonBar1.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
+            this.ribbonBar1.Location = new System.Drawing.Point(628, 0);
+            this.ribbonBar1.Name = "ribbonBar1";
+            this.ribbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ribbonBar1.Size = new System.Drawing.Size(559, 95);
+            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar1.TabIndex = 2;
+            this.ribbonBar1.Text = "اعدادات الالوان";
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnVista
+            // 
+            this.btnVista.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnVista.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnVista.FontBold = true;
+            this.btnVista.Image = global::LowerApplication.Properties.Resources.vista;
+            this.btnVista.Name = "btnVista";
+            this.btnVista.SubItemsExpandWidth = 14;
+            this.btnVista.Text = "فيستا";
+            this.btnVista.Click += new System.EventHandler(this.btnVista_Click);
+            // 
+            // btnBlack
+            // 
+            this.btnBlack.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnBlack.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnBlack.FontBold = true;
+            this.btnBlack.Image = ((System.Drawing.Image)(resources.GetObject("btnBlack.Image")));
+            this.btnBlack.Name = "btnBlack";
+            this.btnBlack.SubItemsExpandWidth = 14;
+            this.btnBlack.Text = "أســود";
+            this.btnBlack.Click += new System.EventHandler(this.btnBlack_Click);
+            // 
+            // btnSilver
+            // 
+            this.btnSilver.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnSilver.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnSilver.FontBold = true;
+            this.btnSilver.Image = ((System.Drawing.Image)(resources.GetObject("btnSilver.Image")));
+            this.btnSilver.Name = "btnSilver";
+            this.btnSilver.SubItemsExpandWidth = 14;
+            this.btnSilver.Text = "فضـــــــي";
+            this.btnSilver.Click += new System.EventHandler(this.btnSilver_Click);
+            // 
+            // btnBlue
+            // 
+            this.btnBlue.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnBlue.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.btnBlue.FontBold = true;
+            this.btnBlue.Image = global::LowerApplication.Properties.Resources.Blue;
+            this.btnBlue.Name = "btnBlue";
+            this.btnBlue.SubItemsExpandWidth = 14;
+            this.btnBlue.Text = "أزرق";
+            this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
+            // 
+            // clrPckrCustomiz
+            // 
+            this.clrPckrCustomiz.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.clrPckrCustomiz.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.clrPckrCustomiz.FontBold = true;
+            this.clrPckrCustomiz.Image = ((System.Drawing.Image)(resources.GetObject("clrPckrCustomiz.Image")));
+            this.clrPckrCustomiz.Name = "clrPckrCustomiz";
+            this.clrPckrCustomiz.SubItemsExpandWidth = 14;
+            this.clrPckrCustomiz.Text = "تخصيص";
+            this.clrPckrCustomiz.SelectedColorChanged += new System.EventHandler(this.clrPckrCustomiz_SelectedColorChanged);
+            this.clrPckrCustomiz.ExpandChange += new System.EventHandler(this.clrPckrCustomiz_ExpandChange);
+            // 
             // rtiGeneralSettings
             // 
             this.rtiGeneralSettings.FontBold = true;
@@ -635,14 +635,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LowerApplication.Properties.Resources.main_Backgroud;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1200, 507);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1200, 737);
             this.Controls.Add(this.rcMain);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
@@ -652,8 +649,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.rcMain.ResumeLayout(false);
             this.rcMain.PerformLayout();
-            this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
+            this.ribbonPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
