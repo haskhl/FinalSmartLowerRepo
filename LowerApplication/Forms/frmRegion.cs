@@ -115,5 +115,10 @@ namespace LowerApplication.Forms
         {
             this.Close();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

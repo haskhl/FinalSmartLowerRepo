@@ -143,6 +143,10 @@
             // 
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
